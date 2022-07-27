@@ -37,7 +37,7 @@ func main() {
 
 	// Looping through the file
 	for i := 0; i < len(bytes); i++ {
-		// Switch to execute the current instruction
+		// Switch executing the current instruction
 		switch bytes[i] {
 		// Prints "Hello, World!"
 		case 'h':
@@ -60,7 +60,7 @@ func main() {
 			fmt.Println("Take one down, pass it around.")
 			fmt.Println("No bottles of beer on the wall.")
 			break
-		// Incremens accumulator
+		// Increments accumulator
 		case '+':
 			accumulator++
 			break
