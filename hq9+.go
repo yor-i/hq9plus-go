@@ -33,7 +33,7 @@ func main() {
 			break
 		// Prints the program's source code
 		case 'q':
-			fmt.Println(string(str))
+			fmt.Println(str)
 			break
 		// Prints the lyrics of "99 Bottles of Beer"
 		case '9':
