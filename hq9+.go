@@ -6,46 +6,34 @@ import (
 )
 
 func main() {
-	// Open and load file into array
+	// Open and load file into string
 	if len(os.Args) < 2 {
 		fmt.Println("One argument (file path) must be supplied.")
 		return
 	}
 
-	f, e := os.Open(os.Args[1])
+	f, e := os.ReadFile(os.Args[1])
 	if e != nil {
 		fmt.Println("Couldn't open file.")
 		return
 	}
 
-	stat, e := f.Stat()
-	if e != nil {
-		fmt.Println("Couldn't get file info.")
-		return
-	}
-
-	bytes := make([]byte, stat.Size())
-
-	_, e = f.Read(bytes)
-	if e != nil {
-		fmt.Println("Couldn't read from file.")
-		return
-	}
+	str := string(f)
 
 	// Accumulator variable (very important)
 	accumulator := 0
 
 	// Looping through the file
-	for i := 0; i < len(bytes); i++ {
+	for i := 0; i < len(str); i++ {
 		// Switch executing the current instruction
-		switch bytes[i] {
+		switch str[i] {
 		// Prints "Hello, World!"
 		case 'h':
 			fmt.Println("Hello, World!")
 			break
 		// Prints the program's source code
 		case 'q':
-			fmt.Println(string(bytes))
+			fmt.Println(string(str))
 			break
 		// Prints the lyrics of "99 Bottles of Beer"
 		case '9':
